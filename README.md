@@ -58,7 +58,7 @@ Equation 1: 3x - 2y + z = 4
 Equation 2: 2x + y - z = -1
 Equation 3: x + 3y - 2z = 3
 
-
+# NOT WORKING RIGHT NOW
 Mixed Variable Naming Format:
 Enter the number of equations: 3
 Enter your equations or matrix (one equation/matrix entry per line):
@@ -73,6 +73,4 @@ Equation 3: x1 + 3x2 - 2x3 = 3
 
 ## Contributing
 
-Contributions are welcome! Feel free to submit issues and pull requests on the [GitHub repository](https://github.com/darioblopes/equation_solver).
-
-
+Contributions are welcome! Feel free to submit issues and pull requests on the [GitHub repository](https://github.com/darioblopes/linear-equation-solver).
