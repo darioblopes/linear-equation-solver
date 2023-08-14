@@ -58,7 +58,7 @@ Equation 1: 3x - 2y + z = 4
 Equation 2: 2x + y - z = -1
 Equation 3: x + 3y - 2z = 3
 
-# NOT WORKING RIGHT NOW
+NOT WORKING RIGHT NOW:
 Mixed Variable Naming Format:
 Enter the number of equations: 3
 Enter your equations or matrix (one equation/matrix entry per line):
