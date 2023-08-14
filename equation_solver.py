@@ -2,27 +2,33 @@ import numpy as np
 import sympy as sp
 import re
 
+# Function to perform Gaussian elimination on a matrix
 def gaussian_elimination(matrix):
     rows, cols = matrix.shape
     for pivot_row in range(min(rows, cols - 1)):
+        # Find the maximum absolute value in the column and swap rows
         max_row = np.argmax(np.abs(matrix[pivot_row:, pivot_row])) + pivot_row
         matrix[[pivot_row, max_row]] = matrix[[max_row, pivot_row]]
 
+        # Normalize the pivot row
         pivot_value = matrix[pivot_row, pivot_row]
         matrix[pivot_row] /= pivot_value
 
+        # Eliminate non-zero values below the pivot
         for row in range(pivot_row + 1, rows):
             factor = matrix[row, pivot_row]
             matrix[row] -= factor * matrix[pivot_row]
 
     return matrix
 
+# Function to convert a matrix to echelon form
 def convert_to_echelon_form(matrix):
     return gaussian_elimination(matrix)
 
 def main():
     while True:
         try:
+            # Get the number of equations from the user
             num_equations = int(input("Enter the number of equations: "))
             break
         except ValueError:
@@ -32,6 +38,7 @@ def main():
     equations = []
     equation_vars = set()
 
+    # Input and preprocess equations
     for _ in range(num_equations):
         equation_str = input("Equation {}: ".format(_ + 1))
         equation_str = equation_str.replace(' ', '')
@@ -59,6 +66,7 @@ def main():
             return
 
     try:
+        # Convert equations to coefficient matrix and constants vector
         coef_matrix, constants = sp.linear_eq_to_matrix(eqns, symbols)
     except ValueError as e:
         print("Error creating coefficient matrix and constants vector.")
@@ -73,6 +81,7 @@ def main():
     augmented_matrix = np.hstack((coef_matrix, np.array(constants).reshape(-1, 1)))
 
     try:
+        # Convert the matrix to echelon form using Gaussian elimination
         echelon_matrix = convert_to_echelon_form(augmented_matrix)
     except Exception as e:
         print("Error during Gaussian elimination.")
